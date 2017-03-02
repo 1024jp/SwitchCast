@@ -35,12 +35,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         guard let receiver = NSApp.target(forAction: #selector(Gayan.sayHello(_:))) else { return }
         
         switch receiver {
-        case _ as Mascot: break  // <- crash on this line
+        case is Mascot: break  // <- crash on this line
         default: break
         }
         
         switch receiver as AnyObject {
-        case _ as Mascot: break  // <- while this line doesn't crash
+        case is Mascot: break  // <- while this line doesn't crash
         default: break
         }
         
